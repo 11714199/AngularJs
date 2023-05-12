@@ -1,0 +1,22 @@
+
+<div class="loginContainer">
+    <form class="form" #loginForm = "ngForm" (ngSubmit)="login(loginForm)" >
+        <h4 class="title">Sign In</h4>
+        <div>
+            <input class="form-control" type="email" placeholder="Email" name="email" ngModel [(ngModel)]="data.email" required>
+        </div>
+        <div>
+            <input class="form-control" type="password" placeholder="Password" name="password" minlength="8" maxlength="15" ngModel [(ngModel)]="data.password" required>
+        </div>
+        <button class="submitButton" [disabled]="loginForm.invalid" type="submit">
+            Submit
+        </button>
+        <a href="forgetPassword" (click)="forgetPassword()">Forget Password</a>
+        <div *ngIf="forgetPas">  
+            <app-forget-password [email]="data.email"> Hii </app-forget-password>
+        </div>
+        <div *ngIf="welcomePage">
+            <app-welcome></app-welcome>
+        </div>
+    </form>
+</div>
